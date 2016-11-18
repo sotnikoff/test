@@ -16,7 +16,8 @@ class RouteHandle
 
     public function __construct()
     {
-        
+        $this->uri = $_SERVER['REQUEST_URI'];
+        var_dump($this->uri);
     }
 
 

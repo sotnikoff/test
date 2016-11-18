@@ -8,3 +8,4 @@
 
 require __DIR__ . '/../vendor/autoload.php';
 
+$routeManager = new Kernel\RouteHandle();
