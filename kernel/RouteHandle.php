@@ -13,13 +13,18 @@ class RouteHandle
 {
 
     protected $uri;
+    private $paths;
 
     public function __construct()
     {
         $this->uri = $_SERVER['REQUEST_URI'];
-        var_dump($this->uri);
     }
 
+    protected function registerPaths(array $path)
+    {
 
+    }
+
+    private function 
 
 }
