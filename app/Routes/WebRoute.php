@@ -8,9 +8,13 @@
 
 namespace App\Routes;
 
-use Kernel\RouteHandle;
+use Kernel\Routes\RouteHandle;
+use Kernel\Routes\RouteInterface;
 
-class WebRoute extends RouteHandle
+class WebRoute extends RouteHandle implements RouteInterface
 {
-
+    public function initializeRoutes()
+    {
+        // TODO: Implement initializeRoutes() method.
+    }
 }
