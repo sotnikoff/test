@@ -6,3 +6,5 @@
  * Time: 17:57
  */
 
+require __DIR__ . '/../vendor/autoload.php';
+
