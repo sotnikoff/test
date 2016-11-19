@@ -21,9 +21,9 @@ class Comment extends ORM
     {
         parent::query("INSERT 
           INTO COMMENTS
-            (text,published,modified_at,created_at,author_name,author_email)
+            (text,published,modified_at,created_at,author_name,author_email,image)
           VALUES
-          (?,?,?,?,?,?)
+          (?,?,?,?,?,?,?)
           ",[
                 $comment['text'],
                 0,
@@ -31,6 +31,7 @@ class Comment extends ORM
                 date("Y-m-d H:i:s",time()),
                 $comment['name'],
                 $comment['email'],
+                $comment['image']
         ],false);
 
         return true;

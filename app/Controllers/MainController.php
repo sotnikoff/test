@@ -11,9 +11,12 @@ namespace App\Controllers;
 use Kernel\Controller;
 use Kernel\ViewHandler as View;
 use App\Models\Comment;
+use Kernel\FileHandle;
 
 class MainController extends Controller
 {
+    use FileHandle;
+
     public function index()
     {
 
@@ -30,13 +33,20 @@ class MainController extends Controller
 
     public function storeComment()
     {
+        $file = $this->saveFiles();
+
         $comment = new Comment();
+
         $comment->storeComment([
-            'text'  =>  '12345',
-            'email' =>  'www@fff.ru',
-            'name'  =>  'DSDSDSD'
+            'text'  =>  $this->postData['text'],
+            'email' =>  $this->postData['email'],
+            'name'  =>  $this->postData['name'],
+            'image'  =>  '/resources/files/'.$file
         ]);
         //header('Location: /');
+
+
+
     }
 
 }

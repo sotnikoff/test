@@ -4,5 +4,8 @@
       "App\\":"app/",
       "Kernel\\":"kernel/"
     }
+  },
+  "require": {
+    "eventviva/php-image-resize": "1.6.*"
   }
 }

@@ -31,7 +31,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Добавить отзыв</div>
                     <div class="panel-body">
-                        <form action="/store" method="post">
+                        <form enctype="multipart/form-data" action="/store" method="post">
                             <div class="form-group">
                                 <label for="name">Имя</label>
                                 <input type="text" class="form-control" id="name" placeholder="Ваше имя" name="name">
@@ -43,6 +43,11 @@
                             <div class="form-group">
                                 <label for="text">Ваш отзыв</label>
                                 <textarea class="form-control" rows="3" id="text" name="text"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputFile">Изображение</label>
+                                <input type="file" id="File" name="File">
+                                <p class="help-block">Приложите картинку</p>
                             </div>
                             <input class="btn btn-default" type="submit" value="Submit">
                         </form>
@@ -56,6 +61,6 @@
 
         <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-        <script src="resourses/main.js"></script>
+        <script src="resources/main.js"></script>
     </body>
 </html>

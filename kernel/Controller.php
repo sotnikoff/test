@@ -13,9 +13,11 @@ abstract class Controller
 {
 
     protected $parameters;
+    protected $postData;
 
-    public function __construct($params)
+    public function __construct()
     {
-        $this->parameters = $params;
+        $this->parameters = $_GET;
+        $this->postData = $_POST;
     }
 }
