@@ -17,6 +17,23 @@ class Comment extends ORM
         $this->table = "comments";
     }
 
+    public function storeComment($comment)
+    {
+        parent::query("INSERT 
+          INTO COMMENTS
+          (text,published,modified_at,created_at,author_name,author_email)
+          VALUES
+          (?,?,?,?,?,?)
+          ",[
+                $comment['text'],
+                0,
+                date("Y-m-d H:i:s",time()),
+                date("Y-m-d H:i:s",time()),
+                $comment['name'],
+                $comment['email'],
+        ]);
 
+        return true;
+    }
 
 }

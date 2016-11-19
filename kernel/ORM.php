@@ -33,8 +33,15 @@ abstract class ORM implements ORMInterface
     {
         $prepared = $this->DB->prepare($query);
 
-        foreach($params as $key => $param){
+        foreach($params as $key => &$param){
+            echo $key+1;
             $prepared->bindParam($key+1,$param);
+        }
+
+        var_dump($params);
+
+        if(!$prepared->execute()){
+            var_dump($prepared->errorInfo());
         }
     }
 

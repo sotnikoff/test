@@ -18,6 +18,11 @@ class MainController extends Controller
     {
 
         $comment = new Comment();
+        $comment->storeComment([
+            'text'  =>  '12345',
+            'email' =>  'www@fff.ru',
+            'name'  =>  'DSDSDSD'
+        ]);
 
         $view = new View('Test');
         $view->assignParameter('title','Hello World!');
