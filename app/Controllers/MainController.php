@@ -36,6 +36,7 @@ class MainController extends Controller
             'email' =>  'www@fff.ru',
             'name'  =>  'DSDSDSD'
         ]);
+        //header('Location: /');
     }
 
 }

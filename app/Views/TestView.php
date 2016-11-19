@@ -8,17 +8,15 @@
     <body>
         <div class="container">
             <div class="lg-12">
-                <h1>Отзывы</h1>
+                <h3>Отзывы</h3>
                 <div class="comments-list">
                     <?php foreach ($comments as $comment):?>
 
                         <div class="media">
                             <p class="pull-right"><small><?=$comment['created_at']?></small></p>
-                            <a class="media-left" href="#">
-                                <img src="http://lorempixel.com/40/40/people/1/">
-                            </a>
+                            
                             <div class="media-body">
-
+                                <img src="" alt="" width="80px" height="80px">
                                 <h4 class="media-heading user_name"><?=$comment['author_name']?></h4>
                                 <?=$comment['text']?>
 
@@ -30,7 +28,27 @@
                 </div>
             </div>
             <div class="lg-12">
-                <h1>Добавить отзыв</h1>
+                <div class="panel panel-default">
+                    <div class="panel-heading">Добавить отзыв</div>
+                    <div class="panel-body">
+                        <form action="/store" method="post">
+                            <div class="form-group">
+                                <label for="name">Имя</label>
+                                <input type="text" class="form-control" id="name" placeholder="Ваше имя" name="name">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Адрес электронной почты</label>
+                                <input type="email" class="form-control" id="email" placeholder="Email" name="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="text">Ваш отзыв</label>
+                                <textarea class="form-control" rows="3" id="text" name="text"></textarea>
+                            </div>
+                            <input class="btn btn-default" type="submit" value="Submit">
+                        </form>
+                    </div>
+                </div>
+
             </div>
         </div>
 

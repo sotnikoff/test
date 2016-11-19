@@ -20,5 +20,11 @@ class WebRoute extends RouteHandle
             'method'        =>      'index',
             'requestMethod' =>      'GET'
         ]);
+        $this->registerPath([
+            'path'          =>      '/store',
+            'controller'    =>      'MainController',
+            'method'        =>      'storeComment',
+            'requestMethod' =>      'POST'
+        ]);
     }
 }
