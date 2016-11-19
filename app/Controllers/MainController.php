@@ -8,11 +8,21 @@
 
 namespace App\Controllers;
 
+use Kernel\Controller;
+use Kernel\ViewHandler as View;
+use App\Models\Comment;
 
-class MainController
+class MainController extends Controller
 {
-    public static function index()
+    public function index()
     {
-        echo "hello";
+
+        $comment = new Comment();
+
+        $view = new View('Test');
+        $view->assignParameter('title','Hello World!');
+        $view->assignParameter('title2','Hello World!222');
+        $view->render();
+
     }
 }

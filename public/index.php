@@ -9,3 +9,5 @@
 require __DIR__ . '/../vendor/autoload.php';
 
 $routeManager = new App\Routes\WebRoute();
+
+$routeManager->processPaths();

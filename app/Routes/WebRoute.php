@@ -8,13 +8,22 @@
 
 namespace App\Routes;
 
-use Kernel\Routes\RouteHandle;
-use Kernel\Routes\RouteInterface;
+use Kernel\RouteHandle;
 
-class WebRoute extends RouteHandle implements RouteInterface
+class WebRoute extends RouteHandle
 {
     public function initializeRoutes()
     {
-        // TODO: Implement initializeRoutes() method.
+        $this->registerPath([
+            'path' => '/home',
+            'controller' => 'MainController',
+            'method' => 'index'
+        ]);
+
+        $this->registerPath([
+            'path' => '/',
+            'controller' => 'MainController',
+            'method' => 'index'
+        ]);
     }
 }
