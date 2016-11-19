@@ -12,5 +12,11 @@ use Kernel\ORM;
 
 class Comment extends ORM
 {
+    public function setTable()
+    {
+        $this->table = "comments";
+    }
+
+
 
 }

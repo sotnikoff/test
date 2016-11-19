@@ -8,14 +8,17 @@
 
 namespace Kernel;
 
+use Kernel\ORMInterface;
 
-abstract class ORM
+abstract class ORM implements ORMInterface
 {
     private $DB;
+    protected $table;
+
+    abstract public function setTable();
 
     private function DBConnect()
     {
-        //$this->mysqli = new mysqli('localhost','root','pksiter2','test','8889');
 
         $this->DB = new \PDO('mysql:host=localhost;dbname=test;port=8889','root','pksiter2');
 
@@ -25,4 +28,15 @@ abstract class ORM
     {
         $this->DBConnect();
     }
+
+    public function query($query,$params)
+    {
+        $prepared = $this->DB->prepare($query);
+
+        foreach($params as $key => $param){
+            $prepared->bindParam($key+1,$param);
+        }
+    }
+
+
 }
