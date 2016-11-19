@@ -29,19 +29,23 @@ abstract class ORM implements ORMInterface
         $this->DBConnect();
     }
 
-    public function query($query,$params)
+    public function query($query,$params,$fetch = true)
     {
         $prepared = $this->DB->prepare($query);
 
         foreach($params as $key => &$param){
-            echo $key+1;
             $prepared->bindParam($key+1,$param);
         }
 
-        var_dump($params);
-
         if(!$prepared->execute()){
             var_dump($prepared->errorInfo());
+            return false;
+        }
+
+        if($fetch){
+            return $prepared->fetchAll();
+        }else{
+            return true;
         }
     }
 

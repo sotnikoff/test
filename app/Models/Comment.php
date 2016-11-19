@@ -21,7 +21,7 @@ class Comment extends ORM
     {
         parent::query("INSERT 
           INTO COMMENTS
-          (text,published,modified_at,created_at,author_name,author_email)
+            (text,published,modified_at,created_at,author_name,author_email)
           VALUES
           (?,?,?,?,?,?)
           ",[
@@ -31,9 +31,15 @@ class Comment extends ORM
                 date("Y-m-d H:i:s",time()),
                 $comment['name'],
                 $comment['email'],
-        ]);
+        ],false);
 
         return true;
+    }
+
+
+    public function getComments($order = 'created_at',$orderDirection = 'DESC')
+    {
+        return parent::query('SELECT * FROM COMMENTS WHERE COMMENTS.PUBLISHED = 1 ORDER BY ? ?',[$order,$orderDirection]);
     }
 
 }

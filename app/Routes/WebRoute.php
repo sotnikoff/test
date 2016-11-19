@@ -15,15 +15,10 @@ class WebRoute extends RouteHandle
     public function initializeRoutes()
     {
         $this->registerPath([
-            'path' => '/home',
-            'controller' => 'MainController',
-            'method' => 'index'
-        ]);
-
-        $this->registerPath([
-            'path' => '/',
-            'controller' => 'MainController',
-            'method' => 'index'
+            'path'          =>      '/',
+            'controller'    =>      'MainController',
+            'method'        =>      'index',
+            'requestMethod' =>      'GET'
         ]);
     }
 }

@@ -26,7 +26,8 @@ abstract class RouteHandle
 
     public function __construct()
     {
-        if(strpos($_SERVER['REQUEST_URI'],'?') === false){
+        if(strpos($_SERVER['REQUEST_URI'],'?') === false)
+        {
             $this->route = $_SERVER['REQUEST_URI'];
         }else{
             $this->route = strstr($_SERVER['REQUEST_URI'],'?',true);
@@ -54,6 +55,12 @@ abstract class RouteHandle
 
 
         $path = $this->paths[$this->route];
+
+        if($_SERVER['REQUEST_METHOD'] !== $path['requestMethod'])
+        {
+            echo 'REQUEST METHOD ERROR';
+            return;
+        }
 
         $controller = "App\\Controllers\\" . $path['controller'];
         $controllerObject = new $controller($this->params);
