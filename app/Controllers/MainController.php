@@ -12,10 +12,12 @@ use Kernel\Controller;
 use Kernel\ViewHandler as View;
 use App\Models\Comment;
 use Kernel\FileHandle;
+use Kernel\Validate;
 
 class MainController extends Controller
 {
     use FileHandle;
+    use Validate;
 
     public function index()
     {
@@ -33,20 +35,31 @@ class MainController extends Controller
 
     public function storeComment()
     {
+
+        if
+        (
+            !$this->email($this->postData['email'])
+            or
+            !$this->string($this->postData['name'])
+            or
+            !$this->text($this->postData['text'])
+        )
+        {
+            echo 'bad data';
+            return false;
+        }
+
+
         $file = $this->saveFiles();
 
         $comment = new Comment();
-
         $comment->storeComment([
             'text'  =>  $this->postData['text'],
             'email' =>  $this->postData['email'],
             'name'  =>  $this->postData['name'],
             'image'  =>  '/resources/files/'.$file
         ]);
-        //header('Location: /');
-
-
-
+        header('Location: /');
     }
 
 }

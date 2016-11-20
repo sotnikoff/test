@@ -38,9 +38,31 @@ class Comment extends ORM
     }
 
 
-    public function getComments($order = 'created_at',$orderDirection = 'DESC')
+    public function getComments($order = 'created_at',$orderDirection = 'DESC', $all = false)
     {
-        return parent::query('SELECT * FROM COMMENTS WHERE COMMENTS.PUBLISHED = 1 ORDER BY ? ?',[$order,$orderDirection]);
+        if($all)
+        {
+            $where = '';
+        }else{
+            $where = "WHERE COMMENTS.PUBLISHED = 1";
+        }
+
+        return parent::query("SELECT * FROM COMMENTS $where ORDER BY ? ?",[$order,$orderDirection]);
+    }
+
+    public function editComment($comment)
+    {
+        //TODO
+    }
+
+    public function activateComment($id)
+    {
+        return parent::query("UPDATE COMMENTS SET published = 1 WHERE id = ?",[$id]);
+    }
+
+    public function deactivateComment($id)
+    {
+        return parent::query("UPDATE COMMENTS SET published = 0 WHERE id = ?",[$id]);
     }
 
 }

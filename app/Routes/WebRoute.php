@@ -26,5 +26,23 @@ class WebRoute extends RouteHandle
             'method'        =>      'storeComment',
             'requestMethod' =>      'POST'
         ]);
+        $this->registerPath([
+            'path'          =>      '/admin',
+            'controller'    =>      'AdminController',
+            'method'        =>      'index',
+            'requestMethod' =>      'GET'
+        ]);
+        $this->registerPath([
+        'path'          =>      '/activate',
+        'controller'    =>      'AdminController',
+        'method'        =>      'activateComment',
+        'requestMethod' =>      'POST'
+        ]);
+        $this->registerPath([
+            'path'          =>      '/deactivate',
+            'controller'    =>      'AdminController',
+            'method'        =>      'deactivateComment',
+            'requestMethod' =>      'POST'
+        ]);
     }
 }

@@ -16,7 +16,7 @@
                             <p class="pull-right"><small><?=$comment['created_at']?></small></p>
                             
                             <div class="media-body">
-                                <img src="" alt="" width="80px" height="80px">
+                                <img src="<?=$comment['image']?>" alt="" width="80px" height="80px">
                                 <h4 class="media-heading user_name"><?=$comment['author_name']?></h4>
                                 <?=$comment['text']?>
 
