@@ -20,7 +20,7 @@ abstract class ORM implements ORMInterface
     private function DBConnect()
     {
 
-        $this->DB = new \PDO('mysql:host=localhost;dbname=test;port=8889','root','pksiter2');
+        $this->DB = new \PDO('mysql:host=localhost;dbname=test;port=8889','root','********');
 
     }
 
